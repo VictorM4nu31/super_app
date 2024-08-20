@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "458311475745",
+    "project_id": "superutvm",
+    "storage_bucket": "superutvm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:458311475745:android:a4c50cb7ce6391a6107960",
+        "android_client_info": {
+          "package_name": "com.example.supermercado"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "458311475745-ocl2e4174ob8ek80sifp7cikf4au2evp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3LxbIYcUKb8CggnCE--oYQl-TkEju9bU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "458311475745-ocl2e4174ob8ek80sifp7cikf4au2evp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "458311475745-7lam1lbq3tjkm63odvei8it304mjbg4m.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.supermercado"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:458311475745:android:0561b70ab171a57c107960",
+        "android_client_info": {
+          "package_name": "com.example.supermercado_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "458311475745-ocl2e4174ob8ek80sifp7cikf4au2evp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3LxbIYcUKb8CggnCE--oYQl-TkEju9bU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "458311475745-ocl2e4174ob8ek80sifp7cikf4au2evp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "458311475745-7lam1lbq3tjkm63odvei8it304mjbg4m.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.supermercado"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
