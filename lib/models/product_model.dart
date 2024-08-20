@@ -7,7 +7,7 @@ class Product {
   final int quantity;
   final DateTime expirationDate;
   final double unitPrice;
-  final String userId; // Añadido el campo userId
+  final String userId; 
 
   Product({
     required this.id,
@@ -16,7 +16,7 @@ class Product {
     required this.quantity,
     required this.expirationDate,
     required this.unitPrice,
-    required this.userId, // Incluye userId en el constructor
+    required this.userId, 
   });
 
   factory Product.fromFirestore(Map<String, dynamic> data, String id) {
@@ -27,7 +27,7 @@ class Product {
       quantity: data['Cantidad'],
       expirationDate: (data['Fecha de vencimiento'] as Timestamp).toDate(),
       unitPrice: data['Precio unitario'].toDouble(),
-      userId: data['userId'] ?? '', // Asegúrate de incluir userId en la conversión
+      userId: data['userId'] ?? '', 
     );
   }
 
@@ -38,7 +38,7 @@ class Product {
       'Cantidad': quantity,
       'Fecha de vencimiento': expirationDate,
       'Precio unitario': unitPrice,
-      'userId': userId, // Incluye userId en el mapa de datos
+      'userId': userId, 
     };
   }
 }

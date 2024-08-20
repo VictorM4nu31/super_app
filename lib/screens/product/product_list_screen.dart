@@ -181,7 +181,7 @@ class ProductListScreen extends StatelessWidget {
                           content: Text('Error al eliminar producto: $error')),
                     );
                   }
-                  // Opcionalmente, puedes registrar el error y la traza de la pila en el log
+                  
                   print('Error: $error');
                   print('StackTrace: $stackTrace');
                 }
