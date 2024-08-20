@@ -3,11 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-
-  String get currentUserId {
-    return _auth.currentUser?.uid ?? '';
-  }
-
   Future<User?> login(String email, String password) async {
     try {
       UserCredential result = await _auth.signInWithEmailAndPassword(
@@ -34,7 +29,6 @@ class AuthService {
     await _auth.signOut();
   }
 
-  // Método para recuperar contraseña
   Future<String> resetPassword(String email) async {
     try {
       await _auth.sendPasswordResetEmail(email: email);
@@ -42,5 +36,11 @@ class AuthService {
     } catch (e) {
       return e.toString();
     }
+  }
+
+  // Nuevo método para obtener el ID del usuario actual
+  String get currentUserId {
+    final user = _auth.currentUser;
+    return user?.uid ?? '';
   }
 }
