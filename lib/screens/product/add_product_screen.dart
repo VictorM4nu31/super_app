@@ -22,7 +22,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
   void _addProduct() {
     if (_expirationDate == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Por favor seleccione una fecha de vencimiento')),
+        const SnackBar(content: Text('Por favor, seleccione una fecha de vencimiento')),
       );
       return;
     }
