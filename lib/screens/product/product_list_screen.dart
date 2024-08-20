@@ -10,14 +10,14 @@ class ProductListScreen extends StatelessWidget {
   final ProductService _productService = ProductService();
   final AuthService _authService = AuthService();
 
-  Stream<List<Product>> _getUserProducts() {
-  final userId = _authService.currentUserId;
-  
-  return _productService.getProducts().map((products) {
-    return products.where((product) => product.userId == userId).toList();
-  });
-}
+  ProductListScreen({super.key});
 
+  Stream<List<Product>> _getUserProducts() {
+    final userId = _authService.currentUserId;
+    return _productService.getProducts().map((products) {
+      return products.where((product) => product.userId == userId).toList();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class ProductListScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: StreamBuilder<List<Product>>(
-          stream: _getUserProducts(), // Usar el stream filtrado
+          stream: _getUserProducts(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               final products = snapshot.data!;
@@ -46,32 +46,57 @@ class ProductListScreen extends StatelessWidget {
                 itemCount: products.length,
                 itemBuilder: (context, index) {
                   final product = products[index];
-                  return ListTile(
-                    title: Text(product.name),
-                    subtitle: Text(
-                        'Marca: ${product.brand} - Cantidad: ${product.quantity}'),
-                    trailing: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        IconButton(
-                          icon: const Icon(Icons.edit),
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    EditProductScreen(product: product),
-                              ),
-                            );
-                          },
+                  return Card(
+                    elevation: 4.0,
+                    margin: const EdgeInsets.symmetric(vertical: 10.0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        backgroundColor: Colors.blueGrey,
+                        child: Text(
+                          product.name[0].toUpperCase(),
+                          style: const TextStyle(color: Colors.white),
                         ),
-                        IconButton(
-                          icon: const Icon(Icons.delete),
-                          onPressed: () {
-                            _showDeleteConfirmationDialog(context, product);
-                          },
+                      ),
+                      title: Text(
+                        product.name,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18.0,
                         ),
-                      ],
+                      ),
+                      subtitle: Text(
+                        'Marca: ${product.brand} - Cantidad: ${product.quantity}',
+                        style: const TextStyle(
+                          fontSize: 14.0,
+                          color: Colors.grey,
+                        ),
+                      ),
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          IconButton(
+                            icon: const Icon(Icons.edit, color: Colors.blue),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      EditProductScreen(product: product),
+                                ),
+                              );
+                            },
+                          ),
+                          IconButton(
+                            icon: const Icon(Icons.delete, color: Colors.red),
+                            onPressed: () {
+                              _showDeleteConfirmationDialog(context, product);
+                            },
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },
@@ -181,7 +206,6 @@ class ProductListScreen extends StatelessWidget {
                           content: Text('Error al eliminar producto: $error')),
                     );
                   }
-                  
                   print('Error: $error');
                   print('StackTrace: $stackTrace');
                 }
